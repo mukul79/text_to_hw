@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-page = Image.open('C:/Users/user/Desktop/text_to_hw/page.png').convert('L')
+page = Image.open('page.png').convert('L')
 #text=input("Enter text: ")
 
 path_font = 'myfont/'#
@@ -18,7 +18,7 @@ for para in para_list:
     word_list = para.split(' ')
     for word in word_list:
         wsize = len(word)
-        if(wsize*width >= 595 - let_num*width):
+        if(wsize*width >= 2480 - let_num*width):
             line_num+=1
             let_num=0
         for i in range(wsize):
