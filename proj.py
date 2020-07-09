@@ -1,11 +1,14 @@
 import os
 from PIL import Image
+from fpdf import FPDF
 
 page = Image.open('page.png')
 #text=input("Enter text: ")
 
 path_font = 'myfont/'#
 
+for file in os.listdir('pages/'):
+    os.remove('pages/'+file)
     
 width,length = Image.open(path_font +os.listdir(path_font)[0]).size
 fp = open('text.txt','r')
@@ -27,7 +30,7 @@ for para in para_list:
             let_num=0
             
         if((line_num+1)*length>= 3508):
-            page.save('result'+str(pagenum)+'.png')
+            page.save('pages/result'+str(pagenum)+'.png')
             page=Image.open('page.png')
             pagenum+=1
             line_num=0
@@ -56,6 +59,15 @@ for para in para_list:
     line_num+=1        
     let_num=0
     print('\n',end='')
-page.save('result'+str(pagenum)+'.png')
-            
+page.save('pages/result'+str(pagenum)+'.png')
+
+for page in os.listdir('pages/'):
+    im=Image.open('pages/'+ page).resize((560,742))
+    im.save('pages/'+ page)
+pdf = FPDF()
+#pdf.set_auto_page_break(0)
+for page in os.listdir('pages/'):
+    pdf.add_page()
+    pdf.image('pages/'+page)
+pdf.output('handwritten_text.pdf','F')
         
