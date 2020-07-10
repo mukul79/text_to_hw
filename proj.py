@@ -61,13 +61,13 @@ for para in para_list:
     print('\n',end='')
 page.save('pages/result'+str(pagenum)+'.png')
 
-for page in os.listdir('pages/'):
-    im=Image.open('pages/'+ page).resize((560,742))
-    im.save('pages/'+ page)
-pdf = FPDF()
-#pdf.set_auto_page_break(0)
+#for page in os.listdir('pages/'):
+#    im=Image.open('pages/'+ page).resize((560,742))
+#    im.save('pages/'+ page)
+pdf = FPDF('P','pt',(2480,3508))
+pdf.set_auto_page_break(0)
 for page in os.listdir('pages/'):
     pdf.add_page()
     pdf.image('pages/'+page)
-pdf.output('handwritten_text.pdf','F')
+pdf.output('static/handwritten_text.pdf','F')
         
