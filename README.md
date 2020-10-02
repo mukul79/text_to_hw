@@ -1,4 +1,4 @@
---This is quite good web app if you wanted to convert any text into hnadwritten pdf -----
+--This web app is quite good web app if you want to convert any text into handwritten pdf file -----
 
 METHOD1
 Clone this repository and run the app.py file by using command:
