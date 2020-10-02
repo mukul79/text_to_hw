@@ -1,7 +1,6 @@
-Using this web app, any text can be converted into handwritten pdf notes.
+--This is quite good web app if you wanted to convert any text into hnadwritten pdf -----
 
 METHOD1
--------
 Clone this repository and run the app.py file by using command:
   python app.py
   
